@@ -1,4 +1,4 @@
-Three scripts writtend as utils for a VMware storage migration effort.
+Three scripts written as utils for a VMware storage migration effort.
 
 - VMDiskUsageReport.ps1 provides total storage used per VM including RAM
   - RAM is counted since VMs use datastores for swap space.
