@@ -11,7 +11,7 @@ Requirements:                    Script must be run in powercli session with use
 ########################################################################################>
 
 # Obtain vcenter and csvfile from user
-PARAM($Vcenter,$csvfile)
+PARAM($Vcenter, $csvfile)
 
 # Disconnect any open connections to vcenters before starting
 Write-Host "Disconnecting any  Vcenter connections already open before starting..."
@@ -21,16 +21,14 @@ Disconnect-VIServer -Server * -Force -Confirm:$false  | Out-Null
 
 $ErrorActionpreference = 'Inquire'
 # Validate that Vcenter and cluster specified by user
-if (($Vcenter -eq $null) -or ($csvfile -eq $null))
-{
-Write-Host "Error" -foreground Red
-write-host "Vcenter server and cluster must be specified. Example: StorageVmotion.ps1  -vcenter <server> -csvfile <file name>"
-Exit
+if (($Vcenter -eq $null) -or ($csvfile -eq $null)) {
+    Write-Host "Error" -foreground Red
+    write-host "Vcenter server and cluster must be specified. Example: StorageVmotion.ps1  -vcenter <server> -csvfile <file name>"
+    Exit
 }
-else
-{
-Connect-VIServer $vcenter -ErrorAction stop | out-null
-Test-Path $csvfile -ErrorAction Stop | Out-Null
+else {
+    Connect-VIServer $vcenter -ErrorAction stop | out-null
+    Test-Path $csvfile -ErrorAction Stop | Out-Null
 }
 
 
@@ -39,7 +37,7 @@ $ErrorActionpreference = 'continue'
 Write-host "Attempting to move VMs. Monitor progress in Vcenter client." -ForegroundColor Yellow
 Import-Csv $csvfile | Foreach {
     Get-VM $_.Name | Move-VM -DiskStorageFormat Thick -Datastore $_.NewDatastore -RunAsync | out-null
-write-host ($_.Name + " to " + $_.NewDatastore)
+    write-host ($_.Name + " to " + $_.NewDatastore)
 }
 
 
