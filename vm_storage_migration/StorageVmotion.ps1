@@ -2,7 +2,7 @@
 ScriptName:                      StorageVmotion.ps1 
 Description:                     Executes storage vmotion from list of servers in csv file. 
 				 csv file needs 2 columns: 1. vmname (Name) 2. Target datastore (NewDatastore)
-Author:                          Damien Erwin 
+Author:                          DJE 
 Date Created:                    1/5/2014
 Reveiwer:                        
 Usage :                          StorageVmotion_v1.ps1 -vcenter <server> -csvfile <path to .csv file>
