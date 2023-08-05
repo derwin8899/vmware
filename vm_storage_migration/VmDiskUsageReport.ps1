@@ -1,7 +1,7 @@
 ﻿<####################################################################################### 
 ScriptName:                      VmDiskUsageReport.ps1 
 Description:                     Provides report on  disk usage of a VM including RAM amount for swap file space. 			 				
-Author:                          Damien Erwin 
+Author:                          DJE
 Date Created:                    02/05/2014
 Reveiwer:                        
 Usage :                          VmDiskUsageReport.ps1   -vcenter <server> -csvfile <path to .txt file of servers>
